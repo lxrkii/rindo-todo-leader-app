@@ -4,11 +4,13 @@ import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
 import Sidebar from "./components/Sidebar";
 import Constitution from "./components/Constitution";
+import CriminalCode from "./components/CriminalCode";
 
 const App: React.FC = () => {
   const [todos, setTodos] = React.useState<Todo[]>([]);
   const [filter, setFilter] = React.useState<FilterType>("all");
   const [showConstitution, setShowConstitution] = React.useState(false);
+  const [showCriminalCode, setShowCriminalCode] = React.useState(false);
 
   // Load todos from localStorage on mount
   React.useEffect(() => {
@@ -88,6 +90,7 @@ const App: React.FC = () => {
         completedCount={completedCount}
         onClearCompleted={clearCompleted}
         onShowConstitution={() => setShowConstitution(true)}
+        onShowCriminalCode={() => setShowCriminalCode(true)}
       />
 
       {/* Main Content */}
@@ -220,6 +223,12 @@ const App: React.FC = () => {
       <Constitution
         isOpen={showConstitution}
         onClose={() => setShowConstitution(false)}
+      />
+
+      {/* Criminal Code Modal */}
+      <CriminalCode
+        isOpen={showCriminalCode}
+        onClose={() => setShowCriminalCode(false)}
       />
     </div>
   );

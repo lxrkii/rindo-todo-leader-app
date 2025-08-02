@@ -10,6 +10,7 @@ interface SidebarProps {
   completedCount: number;
   onClearCompleted: () => void;
   onShowConstitution: () => void;
+  onShowCriminalCode: () => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -20,6 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   completedCount,
   onClearCompleted,
   onShowConstitution,
+  onShowCriminalCode,
 }) => {
   const menuItems = [
     {
@@ -189,6 +191,27 @@ const Sidebar: React.FC<SidebarProps> = ({
             />
           </svg>
           <span>Конституция С-А</span>
+        </button>
+
+        {/* Criminal Code button */}
+        <button
+          onClick={onShowCriminalCode}
+          className="w-full mt-2 px-4 py-2 text-sm text-gray-300 hover:text-gray-200 hover:bg-gray-700 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
+            />
+          </svg>
+          <span>Уголовный Кодекс</span>
         </button>
 
         {/* Clear completed button */}
