@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Classic Black & White Color Scheme */
+:root {
+    --primary-black: #000000;
+    --primary-gray: #374151;
+    --primary-gray-dark: #1f2937;
+    --primary-gray-light: #6b7280;
+    --accent-gray: #9ca3af;
+    --accent-white: #ffffff;
+    --accent-light-gray: #f3f4f6;
+    --black: #000000;
+    --gray-950: #030712;
+    --gray-900: #111827;
+    --gray-800: #1f2937;
+    --gray-700: #374151;
+    --gray-600: #4b5563;
+    --gray-500: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-300: #d1d5db;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --gray-50: #f9fafb;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--black);
+    color: var(--gray-100);
+    line-height: 1.5;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-400);
+}
+
+/* Dark scrollbar for dark areas */
+.dark-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--gray-600);
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+}
+
+/* Focus styles */
+.focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+}
+
+/* Custom animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.btn-primary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+.btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+.input-field {
+    @apply bg-gray-800 border border-gray-600 text-white placeholder-gray-400 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent;
+}
+
+.card {
+    @apply bg-gray-800 border border-gray-700 rounded-lg p-4 shadow-lg transition-all duration-200;
+}
+
+.card:hover {
+    @apply border-gray-600 shadow-xl;
+}
+
+.badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-red {
+    @apply bg-red-100 text-red-800;
+}
+
+.badge-green {
+    @apply bg-green-100 text-green-800;
+}
+
+.badge-orange {
+    @apply bg-orange-100 text-orange-800;
+}
+
+.badge-gray {
+    @apply bg-gray-100 text-gray-800;
+}
+
+.badge-black {
+    @apply bg-black text-white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-hide {
+        display: none;
+    }
+
+    .mobile-full {
+        width: 100%;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .card {
+        @apply border-2 border-gray-600;
+    }
+
+    .btn-primary {
+        @apply border-2 border-gray-800;
+    }
+}
+
+code {
+    font-family:
+        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+    @apply bg-gray-900 text-gray-200 px-1 py-0.5 rounded text-sm;
+}
+
+kbd {
+    @apply bg-gray-900 border border-gray-700 text-gray-200 rounded text-xs px-1 py-0.5 font-mono;
+}
+
+/* Constitution display styles */
+.constitution-text h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-gray);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.constitution-text h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-gray);
+    border-bottom: 2px solid var(--primary-gray);
+    padding-bottom: 0.5rem;
+    margin: 2rem 0 1rem;
+    text-transform: uppercase;
+}
+
+.constitution-text h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--accent-gray);
+    margin: 1.5rem 0 1rem;
+}
+
+.constitution-text p {
+    line-height: 1.7;
+    margin: 1rem 0;
+    color: #e5e7eb;
+    text-align: justify;
+}
+
+.constitution-text ul {
+    line-height: 1.6;
+    margin: 1rem 0;
+    padding-left: 2rem;
+    color: #e5e7eb;
+}
+
+.constitution-text li {
+    margin: 0.5rem 0;
+}
+
+.constitution-text li::marker {
+    color: var(--primary-gray);
+}
+
+/* Scrollbar for constitution modal */
+.constitution-text::-webkit-scrollbar {
+    width: 8px;
+}
+
+.constitution-text::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 4px;
+}
+
+.constitution-text::-webkit-scrollbar-thumb {
+    background: var(--primary-gray);
+    border-radius: 4px;
+}
+
+.constitution-text::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-gray-dark);
+}
+
+/* Modal animation */
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.constitution-modal {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Selection styling for constitution text */
+.constitution-text ::selection {
+    background: var(--primary-gray);
+    color: white;
+}
+
+.constitution-text ::-moz-selection {
+    background: var(--primary-gray);
+    color: white;
+}
